@@ -48,7 +48,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
     const dummy: ComingSoonItem[] = [
       {
         id: "demo-1",
-        title: "Velvet Lounge Set",
+        title: "Velvet Cap Set",
         image:
           "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1020&auto=format&fit=crop",
         releaseDate: "2026-04-01",

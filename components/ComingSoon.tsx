@@ -49,7 +49,7 @@ export function ComingSoon() {
               className="group relative aspect-[4/5] md:aspect-[16/9] w-full overflow-hidden rounded-xl bg-gray-900"
             >
               <Image
-                src={item.image}
+                src="/images/white31.jpeg"
                 alt={item.title}
                 fill
                 className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"

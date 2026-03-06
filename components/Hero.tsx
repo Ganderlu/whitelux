@@ -5,14 +5,14 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative h-[90vh] flex items-center justify-center bg-black text-white overflow-hidden">
+    <section className="relative h-[90vh] flex items-end justify-center pb-16 md:pb-24 bg-black text-white overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/white1.jpeg"
           alt="Luxury Fashion Background"
           fill
-          className="object-contain opacity-60"
+          className="object-contain"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -28,33 +28,11 @@ export function Hero() {
           EST. 2024
         </motion.span>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6"
-        >
-          ELEVATE YOUR <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-            AESTHETIC
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
-        >
-          Discover our curated collection of premium apparel and accessories.
-          Where minimalism meets luxury craftsmanship.
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-row sm:flex-row gap-4 justify-center align-items items-center"
         >
           <Link
             href="/shop"
