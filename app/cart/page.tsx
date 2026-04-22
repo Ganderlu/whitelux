@@ -4,16 +4,64 @@ import { useShop } from "@/context/ShopContext";
 import { Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function CartPage() {
   const { cart, removeFromCart } = useShop();
+  const [email, setEmail] = useState("");
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
   const shipping = subtotal > 200 ? 0 : 15;
   const total = subtotal + shipping;
+
+  const handleCheckout = async () => {
+    setCheckoutError(null);
+
+    const trimmedEmail = email.trim();
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail);
+    if (!isValidEmail) {
+      setCheckoutError("Please enter a valid email address.");
+      return;
+    }
+
+    const amount = Math.round(total * 100);
+    if (!Number.isFinite(amount) || amount <= 0) {
+      setCheckoutError("Invalid total amount.");
+      return;
+    }
+
+    setIsCheckingOut(true);
+    try {
+      const res = await fetch("/api/paystack/initialize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmedEmail, amount }),
+      });
+
+      const data = (await res.json().catch(() => null)) as {
+        authorization_url?: string;
+        error?: string;
+      } | null;
+
+      if (!res.ok || !data?.authorization_url) {
+        setCheckoutError(
+          data?.error || "Could not start payment. Please try again.",
+        );
+        return;
+      }
+
+      window.location.href = data.authorization_url;
+    } catch {
+      setCheckoutError("Could not start payment. Please try again.");
+    } finally {
+      setIsCheckingOut(false);
+    }
+  };
 
   if (cart.length === 0) {
     return (
@@ -23,7 +71,7 @@ export default function CartPage() {
         </div>
         <h1 className="text-2xl font-bold mb-2">Your cart is empty</h1>
         <p className="text-gray-500 mb-8">
-          Looks like you haven't added anything to your cart yet.
+          Looks like you haven&apos;t added anything to your cart yet.
         </p>
         <Link
           href="/shop"
@@ -110,10 +158,33 @@ export default function CartPage() {
               </div>
             </div>
 
-            <button className="w-full bg-black text-white py-4 rounded-full font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 group">
-              Checkout
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Email (for receipt)
+              </label>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="you@example.com"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-black/20"
+              />
+            </div>
+
+            <button
+              onClick={handleCheckout}
+              disabled={isCheckingOut}
+              className="w-full bg-black text-white py-4 rounded-full font-bold hover:bg-gray-800 disabled:opacity-70 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 group"
+            >
+              {isCheckingOut ? "Redirecting..." : "Checkout"}
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
+
+            {checkoutError && (
+              <p className="text-sm text-red-600 mt-3 text-center">
+                {checkoutError}
+              </p>
+            )}
 
             <p className="text-xs text-gray-500 mt-4 text-center">
               Free shipping on all orders over $200

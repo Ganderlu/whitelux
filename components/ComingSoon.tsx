@@ -33,7 +33,7 @@ export function ComingSoon() {
             </h2>
           </div>
           <p className="text-gray-400 max-w-md md:text-right">
-            Get a sneak peek at what's dropping next. 
+            Get a sneak peek at what&apos;s dropping next. 
             Exclusive previews for our community.
           </p>
         </motion.div>

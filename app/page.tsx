@@ -76,7 +76,7 @@ export default function Home() {
             EXCLUSIVE DROPS
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-            Members get early access to limited edition pieces. Don't miss out
+            Members get early access to limited edition pieces. Don&apos;t miss out
             on the next drop.
           </p>
           <Link

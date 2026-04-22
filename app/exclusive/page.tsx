@@ -77,7 +77,7 @@ export default function ExclusiveAccess() {
         </form>
         
         <p className="text-xs text-center text-gray-400 mt-6">
-          Hint: Try "WHITELUXVIP"
+          Hint: Try &quot;WHITELUXVIP&quot;
         </p>
       </motion.div>
     </div>

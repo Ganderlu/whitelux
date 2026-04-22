@@ -168,7 +168,7 @@ export default function AdminProductsPage() {
                     onChange={(e) =>
                       setCurrentProduct({
                         ...currentProduct,
-                        category: e.target.value as any,
+                        category: e.target.value as Product["category"],
                       })
                     }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none"
@@ -256,7 +256,7 @@ export default function AdminProductsPage() {
                   </button>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">
-                  Enter local path (e.g., "/images/white1.jpeg") or external
+                  Enter local path (e.g., &quot;/images/white1.jpeg&quot;) or external
                   URL. Press Enter or click Add.
                 </p>
               </div>

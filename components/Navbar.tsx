@@ -62,7 +62,7 @@ export function Navbar() {
                   href="/shop/bags"
                   className="hover:text-black transition-colors"
                 >
-                  Bags!
+                  Bags
                 </Link>
                 <Link
                   href="/exclusive"
