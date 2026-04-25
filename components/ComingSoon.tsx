@@ -29,12 +29,12 @@ export function ComingSoon() {
               Teaser
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
-              COMING SOON
+              New in Store
             </h2>
           </div>
           <p className="text-gray-400 max-w-md md:text-right">
-            Get a sneak peek at what&apos;s dropping next. 
-            Exclusive previews for our community.
+            Get a sneak peek at what&apos;s dropping next. Exclusive previews
+            for our community.
           </p>
         </motion.div>
 
@@ -55,12 +55,16 @@ export function ComingSoon() {
                 className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
-              
+
               <div className="absolute bottom-0 left-0 p-8 w-full">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   {item.releaseDate && (
                     <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-xs font-bold mb-4">
-                      DROPPING {new Date(item.releaseDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}
+                      DROPPING{" "}
+                      {new Date(item.releaseDate).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                      })}
                     </span>
                   )}
                   <h3 className="text-2xl md:text-4xl font-bold mb-2 text-white">

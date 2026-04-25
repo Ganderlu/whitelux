@@ -44,7 +44,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
 
   // Load from localStorage on mount
   useEffect(() => {
-    // Coming Soon Items Logic
+    // New in Store Items Logic
     const savedComingSoon = localStorage.getItem("whitelux_coming_soon");
     const dummy: ComingSoonItem[] = [
       {
@@ -74,7 +74,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
           setComingSoonItems(dummy);
         }
       } catch (e) {
-        console.error("Failed to parse coming soon items", e);
+        console.error("Failed to parse New in Store items", e);
         setComingSoonItems(dummy);
       }
     } else {

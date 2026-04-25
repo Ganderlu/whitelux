@@ -23,7 +23,7 @@ const sidebarItems = [
     icon: ShoppingBag,
   },
   {
-    title: "Coming Soon",
+    title: "New in Store",
     href: "/admin/coming-soon",
     icon: Clock,
   },

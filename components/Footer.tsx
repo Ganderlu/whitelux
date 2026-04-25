@@ -111,6 +111,23 @@ export function Footer() {
           </div>
 
           <div>
+            <h4 className="font-semibold mb-4">Pages</h4>
+            <ul className="space-y-2 text-sm text-gray-400 mb-8">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+            </ul>
+
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
@@ -135,6 +152,22 @@ export function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="hover:text-white transition-colors"
+                >
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="hover:text-white transition-colors"
+                >
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
