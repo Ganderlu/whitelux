@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingBag, User, Menu, X, Heart } from "lucide-react";
+import { ShoppingBag, Menu, X, Heart } from "lucide-react";
 import { useShop } from "@/context/ShopContext";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -87,13 +87,6 @@ export function Navbar() {
                 )}
               </Link>
               <Link
-                href="/admin"
-                className="hidden md:flex p-2 hover:bg-gray-100 rounded-full transition-colors"
-                aria-label="Account"
-              >
-                <User className="h-5 w-5" />
-              </Link>
-              <Link
                 href="/cart"
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors relative"
                 aria-label="Cart"
@@ -158,9 +151,6 @@ export function Navbar() {
               <div className="flex flex-col gap-4 text-lg text-gray-600">
                 <Link href="/wishlist" className="flex items-center gap-3">
                   <Heart className="h-5 w-5" /> Wishlist ({wishlistCount})
-                </Link>
-                <Link href="/admin" className="flex items-center gap-3">
-                  <User className="h-5 w-5" /> My Account
                 </Link>
               </div>
             </div>
