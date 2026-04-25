@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export function Footer() {
   const pathname = usePathname();
@@ -21,6 +22,54 @@ export function Footer() {
               Elevating standard wear to luxury. Designed for the modern
               individual.
             </p>
+            <div className="pt-2">
+              <h4 className="font-semibold mb-3">Follow</h4>
+              <div className="flex items-center gap-4 text-gray-400">
+                <a
+                  href="https://web.facebook.com/profile.php?id=61563710020876"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://x.com/whitelux_wears"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                  aria-label="X"
+                >
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@whiteoriginal0"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                  aria-label="TikTok"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M16.62 5.02c.6.58 1.28.98 2.05 1.2v2.14c-1.35-.05-2.6-.5-3.68-1.33v7.16a5.3 5.3 0 1 1-5.3-5.3c.23 0 .46.02.69.05v2.32a2.95 2.95 0 1 0 2.26 2.88V3h2.18c.07.74.41 1.43.8 2.02Z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.instagram.com/whitelux_original/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
           </div>
 
           <div>
